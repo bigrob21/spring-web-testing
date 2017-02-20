@@ -29,7 +29,7 @@ public class AuthenticatedUser implements UserDetails {
 	
 	@Getter 
 	@Setter
-	private String sid; 
+	private String usid; 
 
 	@Getter 
 	@Setter
