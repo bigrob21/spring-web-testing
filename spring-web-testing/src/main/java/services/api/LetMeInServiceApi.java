@@ -8,8 +8,6 @@ import domain.AuthenticatedUser;
 import domain.RequestParams;
 
 public interface LetMeInServiceApi extends UserDetailsService {
-
-	public RequestParams getRequestParamsFromRequest(HttpServletRequest request);
 	
 	public boolean isUserInDb(AuthenticatedUser user);
 	
@@ -19,7 +17,7 @@ public interface LetMeInServiceApi extends UserDetailsService {
 
 	
 	public default RequestParams getRequestParamsFromRequest(HttpServletRequest request) {
-		
+		return new RequestParams(request);
 	}
 	
 }

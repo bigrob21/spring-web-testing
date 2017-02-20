@@ -8,14 +8,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import domain.AuthenticatedUser;
-import domain.RequestParams;
 import services.api.LdapServiceApi;
 import services.api.LetMeInServiceApi;
+import services.api.UserService;
 
 @Service("userAuthenticationService")
 public class LetMeInServiceImpl implements LetMeInServiceApi {
 
 	private LdapServiceApi ldapService;
+	private UserService userService;
 	
 	private HttpServletRequest request; 
 	
@@ -43,6 +44,12 @@ public class LetMeInServiceImpl implements LetMeInServiceApi {
 	@Autowired
 	public void setHttpServletRequest(HttpServletRequest request){
 		this.request = request;
+	}
+
+	@Override
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 	
 }
